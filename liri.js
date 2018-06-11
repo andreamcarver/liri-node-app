@@ -26,14 +26,26 @@ if (command === "do-what-it-says"){
 
 }
 
+function myTweets(){
+    var twitter = new twitter;
+    twitter.search
+}
+
 function spotifyThisSong(){
-    var spotify = new spotify
-    spotify.search({type: 'track', query: IDK})
+    var spotify = new spotify;
     var songSearch = "";
     for (var i = 3; i < process.argv.length; i++) {
         if (i > 2 && i < process.argv.length) {
         songSearch = songSearch + process.argv[i];
   }
+  spotify.search({type: 'track', query: IDK}, function(err, data){
+      if (err){
+          console.log('An error occurred' + err)
+      }
+      else {
+          console.log(data)
+      }
+  })
 }
 
 // function thirdArgument() {
